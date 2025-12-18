@@ -3,12 +3,12 @@ name: Linting and formating on Pr
 
 on:
   pull_request:
-    branchnes:
+    branches:
     - main
     - develop
 
 jobs: 
-    build-job:
+  build-job:
     name: build the application
     runs-on: ubuntu-latest
     steps:
