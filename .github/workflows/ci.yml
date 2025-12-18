@@ -1,5 +1,5 @@
 # if you code succesed then you get green checkmark on github
-name: Linting and formating on Pr
+name: Linting and formating on Pull Request CI
 
 on:
   pull_request:
@@ -21,13 +21,13 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       # - name: generate prisma client
       #   run: cd db && npx prisma generate && cd ..
 
       - name: build the application
-        run: pnpm run build
+        run: npm run build
 
       # - name: check linting 
       #   run: npm run lint:check
