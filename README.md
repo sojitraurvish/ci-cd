@@ -27,4 +27,6 @@ and use it in your pipeline files
 
 and make the commit and check this things
 
+fist manually ssh in your ec2 and install docker over there
+
 

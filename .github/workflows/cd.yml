@@ -30,3 +30,15 @@ jobs:
 
       - name: Verify pushed image  
         run: docker pull sojitraurvish/ci-cd:${{ github.sha }}
+
+      - name: Deploy to Ec2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            sudo docker pull sojitraurvish/ci-cd:${{ github.sha }}
+            sudo docker stop ci-cd-app || true
+            sudo docker rm ci-cd-app || true
+            sudo docker run -d -p 8080:3000 --name ci-cd-app -e NODE_ENV="mybrowser" -e PORT="3000" sojitraurvish/ci-cd:${{ github.sha }}
