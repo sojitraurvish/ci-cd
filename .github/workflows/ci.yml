@@ -4,7 +4,8 @@ name: Linting and formating on Pr
 on:
   pull_request:
     branchnes:
-    "**"
+    - main
+    - develop
 
 jobs: 
     build-job:
