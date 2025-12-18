@@ -10,7 +10,7 @@ on:
 jobs: 
     build-job:
     name: build the application
-    runs-on:ubantu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
