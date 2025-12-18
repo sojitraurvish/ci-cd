@@ -1,24 +1,8 @@
-# FROM node:20-alpine
-
-# WORKDIR /app
-
-# COPY . .
-
-# RUN npm install
-# RUN npm run build
-# #RUN npx prisma generate
-
-# EXPOSE 3000
-
-# CMD ["node", "dist/servers.js"]
-
-# now let oprimized the above Dockerfile
-
 FROM node:20-alpine 
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package.json  .
 COPY tsconfig.json .
 # COPY ./Prisma .
 
@@ -30,4 +14,4 @@ COPY ./src ./src
 RUN npm run build
 
 EXPOSE 3000
-CMD ["node", "dist/servers.js"]
+CMD ["node", "dist/server.js"]
