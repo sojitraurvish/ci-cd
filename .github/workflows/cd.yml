@@ -31,12 +31,18 @@ jobs:
       - name: Verify pushed image  
         run: docker pull sojitraurvish/ci-cd:${{ github.sha }}
 
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
       - name: Deploy to Ec2
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
+          key_path: ~/.ssh/deploy_key
           script: |
             sudo docker pull sojitraurvish/ci-cd:${{ github.sha }}
             sudo docker stop ci-cd-app || true
