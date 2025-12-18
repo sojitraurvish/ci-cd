@@ -25,4 +25,6 @@ DOCKER_USERNAME=sojitraurvish
 DOCKER_PASSWORK=your docker hub access token 
 and use it in your pipeline files
 
+and make the commit and check this things
+
 
