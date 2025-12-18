@@ -23,8 +23,8 @@ jobs:
       - name: Build the Docker image
         uses: docker/build-push-action@v1
         with:
-          context: . # context of application
-          file: ./Dockerfile # file to build
+          path: . # context of application
+          dockerfile: ./Dockerfile # file to build
           push: true # push the image to docker hub
           tags: sojitraurvish/ci-cd:${{ github.sha }} # tags as commit id
 
