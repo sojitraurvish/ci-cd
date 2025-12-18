@@ -6,7 +6,7 @@ dotenv.config();
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send(`Hello World ${process.env.NODE_ENV}`);
+  res.send(`Hello World image with new work flow ${process.env.NODE_ENV}`);
 });
 
 const PORT = process.env.PORT || 3000;
